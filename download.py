@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.preprocessing import OrdinalEncoder
+import numpy as np
 
 
 def clear_data():
@@ -10,7 +10,7 @@ def clear_data():
     cat_columns = ['age', 'education.num', 'capital.gain', 'capital.loss', 'hours.per.week', 'native.country']
     num_columns = ['workclass', 'education', 'marital.status', 'occupation', 'relationship', 'race', 'sex', 'income']
 
-    df = df.drop('fnlwgt')
+    df = df.drop(['fnlwgt'], axis=1)
 
     print("Обработка пропущенных значений...")
     
@@ -22,7 +22,7 @@ def clear_data():
     removed_rows = initial_rows - len(df)
     
     print(f"Удалено строк с пропусками: {removed_rows}")
-    print(f"Осталось строк: {len(df_processed)}")
+    print(f"Осталось строк: {len(df)}")
     
     df.to_csv('df_clear.csv')
     return True
