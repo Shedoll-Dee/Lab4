@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import OrdinalEncoder
 
 
-def clear_data(path2df):
+def clear_data():
     df = pd.read_csv('./adult.csv', delimiter = ',')
     
     print(df.columns)
@@ -27,5 +27,4 @@ def clear_data(path2df):
     df.to_csv('df_clear.csv')
     return True
 
-download_data()
-clear_data("cars.csv")
+clear_data()
