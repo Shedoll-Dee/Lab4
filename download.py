@@ -7,8 +7,8 @@ def clear_data():
     
     print(df.columns)
 
-    cat_columns = ['age', 'education.num', 'capital.gain', 'capital.loss', 'hours.per.week', 'native.country']
-    num_columns = ['workclass', 'education', 'marital.status', 'occupation', 'relationship', 'race', 'sex', 'income']
+    cat_columns = ['workclass', 'education', 'marital.status', 'occupation', 'relationship', 'race', 'sex', 'income']
+    num_columns = ['age', 'education.num', 'capital.gain', 'capital.loss', 'hours.per.week', 'native.country']
 
     df = df.drop(['fnlwgt'], axis=1)
 
@@ -23,6 +23,9 @@ def clear_data():
     
     print(f"Удалено строк с пропусками: {removed_rows}")
     print(f"Осталось строк: {len(df)}")
+
+    # one-hot кодирование данных
+    df = pd.get_dummies(df, columns=cat_columns)
     
     df.to_csv('df_clear.csv')
     return True
