@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from kaggle.api.kaggle_api_extended import KaggleApi
+from sklearn.preprocessing import LabelEncoder
 
 
 def download_data():
@@ -44,8 +45,10 @@ def clear_data():
     
     df['native.country'] = np.where(df['native.country'] == 'United-States', 'United-States', 'Other')
     
-    # one-hot кодирование данных
-    df = pd.get_dummies(df, columns=cat_columns)
+    # кодирование данных
+    for col in cat_columns:
+        le = LabelEncoder()
+        df[col] = le.fit_transform(df[col])
     
     df.to_csv('df_clear.csv')
     return True
