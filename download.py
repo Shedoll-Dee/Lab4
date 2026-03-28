@@ -11,6 +11,7 @@ def clear_data():
     num_columns = ['age', 'education.num', 'capital.gain', 'capital.loss', 'hours.per.week', 'education.num']
     
     df = df.drop(['fnlwgt'], axis=1)
+    df = df.drop(['education'], axis=1)
 
     df['income'] = np.where(df['income'] == '<=50K', 0, 1)
 
