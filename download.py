@@ -7,9 +7,9 @@ def clear_data():
     
     print(df.columns)
 
-    cat_columns = ['workclass', 'education', 'marital.status', 'occupation', 'relationship', 'race', 'sex', 'income']
-    num_columns = ['age', 'education.num', 'capital.gain', 'capital.loss', 'hours.per.week', 'native.country']
-
+    cat_columns = ['workclass', 'marital.status', 'occupation', 'relationship', 'race', 'sex', 'native.country', 'income']
+    num_columns = ['age', 'education.num', 'capital.gain', 'capital.loss', 'hours.per.week', 'education.num']
+    
     df = df.drop(['fnlwgt'], axis=1)
 
     print("Обработка пропущенных значений...")
@@ -23,7 +23,9 @@ def clear_data():
     
     print(f"Удалено строк с пропусками: {removed_rows}")
     print(f"Осталось строк: {len(df)}")
-
+    
+    df['native.country'] = np.where(df['native.country'] == 'United-States', 'United-States', 'Other')
+    
     # one-hot кодирование данных
     df = pd.get_dummies(df, columns=cat_columns)
     
