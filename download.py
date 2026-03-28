@@ -50,7 +50,7 @@ def clear_data():
         le = LabelEncoder()
         df[col] = le.fit_transform(df[col])
     
-    df.to_csv('df_clear.csv')
+    df.to_csv('df_clear.csv', index=False)
     return True
 
 clear_data()
