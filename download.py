@@ -12,12 +12,12 @@ def download_data():
         path="",
         unzip=True
     )
-    df = pd.read_csv("./adult.csv")
+    df = pd.read_csv("./adult.csv", delimiter = ',')
     return df
 
 
 def clear_data():
-    df = pd.read_csv('./adult.csv', delimiter = ',')
+    df = download_data()
     
     print(df.columns)
 
