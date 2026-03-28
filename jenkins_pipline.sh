@@ -40,7 +40,7 @@ pipeline {
             }
         }
         
-        stage ('Train') {
+        stage ('Train_model') {
             
             steps {
                 build job: 'train_model'
