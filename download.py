@@ -7,10 +7,12 @@ def clear_data():
     
     print(df.columns)
 
-    cat_columns = ['workclass', 'marital.status', 'occupation', 'relationship', 'race', 'sex', 'native.country', 'income']
+    cat_columns = ['workclass', 'marital.status', 'occupation', 'relationship', 'race', 'sex', 'native.country']
     num_columns = ['age', 'education.num', 'capital.gain', 'capital.loss', 'hours.per.week', 'education.num']
     
     df = df.drop(['fnlwgt'], axis=1)
+
+    df['income'] = np.where(df['income'] == '<=50K', 0, 1)
 
     print("Обработка пропущенных значений...")
     
