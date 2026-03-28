@@ -23,7 +23,7 @@ def clear_data():
     print(df.columns)
 
     cat_columns = ['workclass', 'marital.status', 'occupation', 'relationship', 'race', 'sex', 'native.country']
-    num_columns = ['age', 'education.num', 'capital.gain', 'capital.loss', 'hours.per.week', 'education.num']
+    num_columns = ['age', 'capital.gain', 'capital.loss', 'hours.per.week', 'education.num']
     
     df = df.drop(['fnlwgt'], axis=1)
     df = df.drop(['education'], axis=1)
