@@ -10,7 +10,7 @@ def download_data():
 
     api.dataset_download_files(
         "uciml/adult-census-income",
-        path="",
+        path=".",
         unzip=True
     )
     df = pd.read_csv("./adult.csv", delimiter = ',')
