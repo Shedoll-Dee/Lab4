@@ -1,5 +1,19 @@
 import pandas as pd
 import numpy as np
+from kaggle.api.kaggle_api_extended import KaggleApi
+
+
+def download_data():
+    api = KaggleApi()
+    api.authenticate()
+
+    api.dataset_download_files(
+        "uciml/adult-census-income",
+        path="data",
+        unzip=True
+    )
+    df = pd.read_csv("./adult.csv")
+    return df
 
 
 def clear_data():
